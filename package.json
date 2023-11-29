@@ -1,0 +1,19 @@
+{
+  "name": "js-the-right-way",
+  "version": "1.0.0",
+  "description": "",
+  "main": "watcher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjaolabs/node-js-the-right-way.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gjaolabs/node-js-the-right-way/issues"
+  },
+  "homepage": "https://github.com/gjaolabs/node-js-the-right-way#readme"
+}
