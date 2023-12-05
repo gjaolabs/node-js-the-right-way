@@ -6,14 +6,21 @@ const net = require("net")
 const port = 8080;
 const filename = process.argv[2]
 
-//Creates a TCP server that writes to the client/subscriber (at port 8080) when modifications to "target.exe" file take place
+//Creates a TCP server that responds a JSON to the client/subscriber (at port 8080) when modifications to "target.exe" file take place
 const server = net.createServer((connection) => {
     console.log("Subscriber connected.")
-    connection.write("Now watching " + filename + " for changes.\n");
+    connection.write(JSON.stringify({
+        type: "watching",
+        file: filename
+    }) + "\n");
 
-    //Listens for events on "target.exe" and notifies the client/subscriber
+    //Listens for events on "target.exe" and notifies the client/subscriber with a JSON 
     let watcher = fs.watch(filename, () => {
-        connection.write("File " + filename + " changed at: " + Date.now() + "\n")
+        connection.write(JSON.stringify({
+            type: "changed",
+            file: filename,
+            timestamp: Date.now()
+        }) + "\n")
 
     })
 

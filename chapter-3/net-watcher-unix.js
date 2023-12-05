@@ -28,11 +28,12 @@ if(!filename){
     throw Error("No target filename was specified.")
 }
 
-server.listen(port, () => {
+//Change port from 8080 to /tmp/watcher.sock for UNIX socket
+server.listen("/tmp/watcher.sock", () => {
     console.log(`Listening for subscribers on port ${port}...`)
 })
 
 //Start sparate terminal processes
-//One for node via process.argv i.e. node net-watcher.js target.exe
-//One for client/subscriber i.e. telnet localhost 8080
+//One for node via process.argv i.e. node net-watcher-unix.js target.exe
+//One for client/subscriber i.e. nc -U /tmp/watcher.sock
 //One for manipulating the file i.e. touch target.txt
