@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gjaolabs/node-js-the-right-way/issues"
   },
-  "homepage": "https://github.com/gjaolabs/node-js-the-right-way#readme"
+  "homepage": "https://github.com/gjaolabs/node-js-the-right-way#readme",
+  "dependencies": {
+    "zeromq": "^5.3.1"
+  }
 }
